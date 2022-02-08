@@ -12,13 +12,17 @@
             app:key="examount"
             app:title="リセット時の初期金額"
             app:useSimpleSummaryProvider="true"
-            app:defaultValue="1000"/>
+            app:defaultValue="100"/>
 
         <EditTextPreference
             app:key="resettime"
             app:title="金額のリセット時間"
             app:useSimpleSummaryProvider="true"
             app:defaultValue="24:00"/>
+
+        <Preference
+            app:key="reset"
+            app:title = "金額の即時リセット"/>
 
 
     </PreferenceCategory>

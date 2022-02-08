@@ -8,27 +8,96 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="消費金額"
+        android:text="使う（円）"
         android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="5"
-        android:gravity="center"
-        android:text="100円"
-        android:textSize="80dp"
         android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/mpay100"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/reducebutton"
+                android:text="-100"
+                android:textColor="@color/design_default_color_background"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/mpay10"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/reducebutton"
+                android:text="-10"
+                android:textColor="@color/design_default_color_background"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/paynum"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="number"
+            android:text="0"
+            android:textColor="#555555"
+            android:textSize="80dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/pay100"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/raisebutton"
+                android:text="+100"
+                android:textColor="@color/design_default_color_background"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/pay10"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/raisebutton"
+                android:text="+10"
+                android:textColor="@color/design_default_color_background"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="2"
         android:orientation="horizontal">
 
@@ -43,7 +112,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
-            android:background="@drawable/paybutton"
+            android:background="@drawable/backbutton"
             android:text="◀"
             android:textColor="#FFFFFF"
             android:textSize="36sp"

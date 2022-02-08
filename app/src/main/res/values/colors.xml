@@ -5,4 +5,5 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="background">#f4841f</color>
     <color name="paybutton">#EB3029</color>
+    <color name="backbutton">#4CAF50</color>
 </resources>
