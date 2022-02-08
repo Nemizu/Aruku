@@ -13,7 +13,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="@string/available_money"
-        android:textSize="36sp"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
     <TextView
@@ -22,18 +22,22 @@
         android:layout_height="wrap_content"
         android:layout_weight="5"
         android:gravity="center"
-        android:text="1000円"
+        android:text="100円"
         android:textSize="80dp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/use"
-        android:layout_width="193dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
         android:layout_marginBottom="10dp"
         android:layout_weight="2"
-        android:background="#b33928"
+        android:background="@drawable/paybutton"
         android:text="使う"
         android:textColor="#FFFFFF"
         android:textSize="36sp"
