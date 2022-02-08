@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navieditor"
+    app:startDestination="@id/statusDisplay">
+
+    <fragment
+        android:id="@+id/statusDisplay"
+        android:name="com.example.aruku.StatusDisplay"
+        android:label="fragment_status_display"
+        tools:layout="@layout/fragment_status_display" >
+        <action
+            android:id="@+id/action_statusDisplay_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.aruku.SettingsFragment"
+        android:label="SettingsFragment" />
+</navigation>

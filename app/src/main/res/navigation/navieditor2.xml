@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navieditor2"
+    app:startDestination="@id/amountDisplay">
+    <fragment
+        android:id="@+id/amountDisplay"
+        android:name="com.example.aruku.AmountDisplay"
+        android:label="fragment_amount_display"
+        tools:layout="@layout/fragment_amount_display" >
+        <action
+            android:id="@+id/action_amountDisplay_to_paymentDisplay"
+            app:destination="@id/paymentDisplay" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentDisplay"
+        android:name="com.example.aruku.PaymentDisplay"
+        android:label="fragment_payment_display"
+        tools:layout="@layout/fragment_payment_display" >
+        <action
+            android:id="@+id/action_paymentDisplay_to_amountDisplay"
+            app:destination="@id/amountDisplay" />
+    </fragment>
+</navigation>

@@ -1,0 +1,26 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="設定">
+
+        <EditTextPreference
+            app:key="1000money"
+            app:title="1000歩ごとの獲得金額"
+            app:useSimpleSummaryProvider="true"
+            app:defaultValue="100"/>
+
+        <EditTextPreference
+            app:key="examount"
+            app:title="リセット時の初期金額"
+            app:useSimpleSummaryProvider="true"
+            app:defaultValue="1000"/>
+
+        <EditTextPreference
+            app:key="resettime"
+            app:title="金額のリセット時間"
+            app:useSimpleSummaryProvider="true"
+            app:defaultValue="24:00"/>
+
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
