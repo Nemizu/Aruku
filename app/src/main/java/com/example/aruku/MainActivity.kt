@@ -12,6 +12,9 @@ class MainActivity : AppCompatActivity() {
         val shared = PreferenceManager.getDefaultSharedPreferences(this)
         if(!shared.getBoolean("Launched",false)){
             shared.edit().putInt("amount",100).apply()
+            shared.edit().putString("1000money","100").apply()
+            shared.edit().putString("examount","100").apply()
+            shared.edit().putString("resettime","24:00").apply()
             shared.edit().putBoolean("Launched",true).apply()
         }
     }

@@ -43,8 +43,9 @@ class PaymentDisplay : Fragment() {
             findNavController().navigate(R.id.action_paymentDisplay_to_amountDisplay)
         }
         view.findViewById<Button>(R.id.assept).setOnClickListener {
-            shared.edit().putInt("amount",shared.getInt("amount",100) - display.text.toString().toInt()).apply()
-            findNavController().navigate(R.id.action_paymentDisplay_to_amountDisplay)
+            if(shared.getInt("amount",100) >= display.text.toString().toInt()){
+                findNavController().navigate(R.id.action_paymentDisplay_to_amountDisplay)
+            }
         }
     }
 
