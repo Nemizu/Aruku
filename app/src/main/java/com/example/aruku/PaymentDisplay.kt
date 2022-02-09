@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
 
@@ -43,8 +44,11 @@ class PaymentDisplay : Fragment() {
             findNavController().navigate(R.id.action_paymentDisplay_to_amountDisplay)
         }
         view.findViewById<Button>(R.id.assept).setOnClickListener {
-            if(shared.getInt("amount",100) >= display.text.toString().toInt()){
-                findNavController().navigate(R.id.action_paymentDisplay_to_amountDisplay)
+            if(display.text.toString() != ""){//なぜか&&を使用すると落ちるので
+                if(shared.getInt("amount",100) >= display.text.toString().toInt()){
+                    shared.edit().putInt("amount",shared.getInt("amount",100) - display.text.toString().toInt()).apply()
+                    findNavController().navigate(R.id.action_paymentDisplay_to_amountDisplay)
+                }
             }
         }
     }

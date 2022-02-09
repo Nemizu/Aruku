@@ -26,9 +26,18 @@ class StatusDisplay : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val mainactivity = this.activity as MainActivity
         val shared = PreferenceManager.getDefaultSharedPreferences(mainactivity)
-        view.findViewById<TextView>(R.id.value3).text = shared.getString("1000money","0") + "円"
-        view.findViewById<TextView>(R.id.value4).text = shared.getString("resettime","0:00")
-        view.findViewById<TextView>(R.id.value5).text = shared.getString("examount","1000") + "円"
+        if(shared.getString("1000money","100") == ""){
+            shared.edit().putString("1000money","100").apply()
+        }
+        if(shared.getString("resettime","100") == ""){
+            shared.edit().putString("resettime","24:00").apply()
+        }
+        if(shared.getString("examount","100") == ""){
+            shared.edit().putString("examount","100").apply()
+        }
+        view.findViewById<TextView>(R.id.value3).text = shared.getString("1000money","100") + "円"
+        view.findViewById<TextView>(R.id.value4).text = shared.getString("resettime","24:00")
+        view.findViewById<TextView>(R.id.value5).text = shared.getString("examount","100") + "円"
         mainactivity.setupBack(false)
 
         view.findViewById<Button>(R.id.setting).setOnClickListener {

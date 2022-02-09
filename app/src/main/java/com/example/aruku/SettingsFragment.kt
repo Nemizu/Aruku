@@ -7,10 +7,7 @@ import android.text.method.DigitsKeyListener
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import androidx.preference.EditTextPreference
-import androidx.preference.Preference
-import androidx.preference.PreferenceFragmentCompat
-import androidx.preference.PreferenceManager
+import androidx.preference.*
 
 class SettingsFragment : PreferenceFragmentCompat() {
 
@@ -22,6 +19,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val numberPreference1: EditTextPreference? = findPreference("1000money")
         val numberPreference2: EditTextPreference? = findPreference("examount")
         val timePreference: EditTextPreference? = findPreference("resettime")
+        //val Dialog1 :DialogPreference? = findPreference("1000money")
         numberPreference1?.setOnBindEditTextListener {
             it.keyListener = DigitsKeyListener.getInstance("01234456789")
             it.inputType = InputType.TYPE_CLASS_NUMBER
