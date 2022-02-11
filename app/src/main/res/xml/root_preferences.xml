@@ -4,10 +4,10 @@
         app:iconSpaceReserved="false">
 
         <EditTextPreference
-            app:key="1000money"
-            app:title="1000歩ごとの獲得金額"
+            app:key="100money"
+            app:title="100歩ごとの獲得金額"
             app:useSimpleSummaryProvider="true"
-            app:defaultValue="100"
+            app:defaultValue="10"
             app:iconSpaceReserved="false" />
 
         <EditTextPreference

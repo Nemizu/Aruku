@@ -16,10 +16,10 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val mainactivity = this.activity as MainActivity
         setHasOptionsMenu(true)
         mainactivity.setupBack(true)
-        val numberPreference1: EditTextPreference? = findPreference("1000money")
+        val numberPreference1: EditTextPreference? = findPreference("100money")
         val numberPreference2: EditTextPreference? = findPreference("examount")
         val timePreference: EditTextPreference? = findPreference("resettime")
-        //val Dialog1 :DialogPreference? = findPreference("1000money")
+        //val Dialog1 :DialogPreference? = findPreference("100money")
         numberPreference1?.setOnBindEditTextListener {
             it.keyListener = DigitsKeyListener.getInstance("01234456789")
             it.inputType = InputType.TYPE_CLASS_NUMBER

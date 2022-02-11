@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1.5"
-                android:text="消費カロリー"
+                android:text="獲得金額"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -79,7 +79,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight="2"
                 android:gravity="right"
-                android:text="0kal"
+                android:text="0円"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -103,7 +103,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:text="獲得金額/1000歩"
+                android:text="獲得金額/100歩"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -117,7 +117,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight="2"
                 android:gravity="right"
-                android:text="100円"
+                android:text="10円"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold"
