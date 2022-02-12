@@ -17,10 +17,10 @@
             app:defaultValue="100"
             app:iconSpaceReserved="false"/>
 
-        <EditTextPreference
+        <Preference
             app:key="resettime"
             app:title="金額のリセット時間(未実装)"
-            app:useSimpleSummaryProvider="true"
+            app:summary="現在は24:00に設定されています"
             app:defaultValue="24:00"
             app:iconSpaceReserved="false"/>
 

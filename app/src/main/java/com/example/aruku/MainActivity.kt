@@ -10,12 +10,17 @@ import androidx.appcompat.app.ActionBar
 import androidx.core.content.PackageManagerCompat
 import androidx.preference.PreferenceManager
 import java.security.Permission
+import java.text.SimpleDateFormat
+import java.util.*
 import java.util.jar.Manifest
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val calender = Calendar.getInstance()
+        val myformat = SimpleDateFormat("yyyy-MM-dd")
+        val date = myformat.format(calender.time)
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             if(checkSelfPermission(android.Manifest.permission.ACTIVITY_RECOGNITION) == PackageManager.PERMISSION_GRANTED){
@@ -36,6 +41,16 @@ class MainActivity : AppCompatActivity() {
             shared.edit().putInt("steps",0).apply()
             shared.edit().putInt("getmoney",0).apply()
         }
+        if(shared.getString("lastdate","") != date){
+            val examount = shared.getString("examount","100")?.toInt()
+            if (examount != null) {
+                shared.edit().putInt("amount",examount).apply()
+                shared.edit().putInt("getmoney",0).apply()
+                shared.edit().putInt("steps",0).apply()
+            }
+            shared.edit().putString("lastdate",date).apply()
+        }
+
     }
 
     override fun onBackPressed() {

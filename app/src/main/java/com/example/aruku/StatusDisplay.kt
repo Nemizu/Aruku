@@ -47,7 +47,6 @@ class StatusDisplay : Fragment() ,SensorEventListener{
         mSensor = mManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR)
         //countSensor = mManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
         //mManager.registerListener(this,countSensor,SensorManager.SENSOR_DELAY_UI)
-        mManager.registerListener(this,mSensor,SensorManager.SENSOR_DELAY_UI)
         shared = PreferenceManager.getDefaultSharedPreferences(mainactivity)
         mainactivity.setupBack(false)
         value1 = view.findViewById(R.id.value1)
@@ -73,6 +72,7 @@ class StatusDisplay : Fragment() ,SensorEventListener{
     @SuppressLint("SetTextI18n")
     override fun onResume() {
         super.onResume()
+        mManager.registerListener(this,mSensor,SensorManager.SENSOR_DELAY_UI)
         value1.text = shared.getInt("steps",0).toString() + "歩"
         value2.text = shared.getInt("getmoney",0).toString() + "円"
     }
