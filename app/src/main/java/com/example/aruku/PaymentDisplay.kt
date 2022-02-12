@@ -41,13 +41,15 @@ class PaymentDisplay : Fragment() {
             display.setText(editablePlusInt(display.text,-100,shared.getInt("amount",100)))
         }
         view.findViewById<Button>(R.id.back).setOnClickListener {
-            findNavController().navigate(R.id.action_paymentDisplay_to_amountDisplay)
+            findNavController().popBackStack()
+            //findNavController().navigate(R.id.action_paymentDisplay_to_amountDisplay)
         }
         view.findViewById<Button>(R.id.assept).setOnClickListener {
             if(display.text.toString() != ""){//なぜか&&を使用すると落ちるので
                 if(shared.getInt("amount",100) >= display.text.toString().toInt()){
                     shared.edit().putInt("amount",shared.getInt("amount",100) - display.text.toString().toInt()).apply()
-                    findNavController().navigate(R.id.action_paymentDisplay_to_amountDisplay)
+                    //findNavController().navigate(R.id.action_paymentDisplay_to_amountDisplay)
+                    findNavController().popBackStack()
                 }
             }
         }

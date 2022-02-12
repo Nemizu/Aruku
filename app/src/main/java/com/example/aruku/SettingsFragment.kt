@@ -38,7 +38,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
            android.R.id.home ->{
-               findNavController().navigate(R.id.action_settingsFragment_to_statusDisplay)
+               //findNavController().navigate(R.id.action_settingsFragment_to_statusDisplay)
+               findNavController().popBackStack()
            }
             else ->{}
         }

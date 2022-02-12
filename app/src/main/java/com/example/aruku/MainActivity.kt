@@ -38,6 +38,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+    }
+
     fun setupBack(enable: Boolean){
         val actionbar = supportActionBar
         actionbar?.setDisplayHomeAsUpEnabled(enable)
