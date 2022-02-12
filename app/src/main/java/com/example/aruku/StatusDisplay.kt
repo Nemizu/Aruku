@@ -2,6 +2,7 @@ package com.example.aruku
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -23,7 +24,6 @@ import kotlinx.android.synthetic.main.fragment_amount_display.view.*
 class StatusDisplay : Fragment() ,SensorEventListener{
     private lateinit var mManager: SensorManager
     private lateinit var mSensor: Sensor
-    private lateinit var countSensor: Sensor
     private lateinit var shared: SharedPreferences
     private lateinit var mainactivity: MainActivity
     private lateinit var value1: TextView
@@ -42,6 +42,7 @@ class StatusDisplay : Fragment() ,SensorEventListener{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mainactivity = this.activity as MainActivity
+        mainactivity.stopService(Intent(mainactivity,CountService::class.java))
         mManager = mainactivity.getSystemService(Context.SENSOR_SERVICE) as SensorManager
         mSensor = mManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR)
         //countSensor = mManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
@@ -69,15 +70,24 @@ class StatusDisplay : Fragment() ,SensorEventListener{
         }
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onResume() {
         super.onResume()
-        value1.text = shared.getInt("steps",0).toString()
+        value1.text = shared.getInt("steps",0).toString() + "歩"
+        value2.text = shared.getInt("getmoney",0).toString() + "円"
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mManager.unregisterListener(this)
+        mainactivity.startService(Intent(mainactivity,CountService::class.java))
     }
 
 
+    @SuppressLint("SetTextI18n")
     override fun onSensorChanged(p0: SensorEvent?) {
         shared.edit().putInt("steps",shared.getInt("steps",0)+1).apply()
-        value1.text = shared.getInt("steps",0).toString()
+        value1.text = shared.getInt("steps",0).toString() + "歩"
         if(shared.getInt("steps",0) % 100 == 0){
             shared.edit().putInt("amount",shared.getInt("amount",100) + shared.getString("100money","100")!!.toInt()).apply()
             shared.edit().putInt("getmoney",shared.getInt("getmoney",0) + shared.getString("100money","100")!!.toInt()).apply()

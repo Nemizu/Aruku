@@ -19,14 +19,14 @@
 
         <EditTextPreference
             app:key="resettime"
-            app:title="金額のリセット時間"
+            app:title="金額のリセット時間(未実装)"
             app:useSimpleSummaryProvider="true"
             app:defaultValue="24:00"
             app:iconSpaceReserved="false"/>
 
         <Preference
             app:key="reset"
-            app:title = "金額の即時リセット"
+            app:title = "金額、歩数、獲得金額の即時リセット"
             app:iconSpaceReserved="false"/>
 
 

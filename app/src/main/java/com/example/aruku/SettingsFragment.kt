@@ -53,6 +53,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 val examount = shared.getString("examount","100")?.toInt()
                 if (examount != null) {
                     shared.edit().putInt("amount",examount).apply()
+                    shared.edit().putInt("getmoney",0).apply()
+                    shared.edit().putInt("steps",0).apply()
                 }
                 Toast.makeText(mainactivity,"リセットしました",Toast.LENGTH_SHORT).show()
             }

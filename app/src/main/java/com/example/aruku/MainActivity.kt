@@ -1,18 +1,31 @@
 package com.example.aruku
 
 import android.content.Context
+import android.content.pm.PackageManager
 import android.hardware.SensorManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBar
+import androidx.core.content.PackageManagerCompat
 import androidx.preference.PreferenceManager
+import java.security.Permission
+import java.util.jar.Manifest
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val shared = PreferenceManager.getDefaultSharedPreferences(this)
 
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            if(checkSelfPermission(android.Manifest.permission.ACTIVITY_RECOGNITION) == PackageManager.PERMISSION_GRANTED){
+
+            }else{
+                requestPermissions(arrayOf(android.Manifest.permission.ACTIVITY_RECOGNITION),1)
+            }
+        }
+
+        val shared = PreferenceManager.getDefaultSharedPreferences(this)
         /*初回起動処理*/
         if(!shared.getBoolean("Launched",false)){
             shared.edit().putInt("amount",100).apply()
