@@ -17,9 +17,9 @@ android studioのプロジェクトです。cloneするか、
 対応OS:Android 4.1以上
 
 # 作者
-作成者: 寺田　洋人
-e-mail: nezumi0803@gmail.com
+- 作成者: 寺田　洋人
+- e-mail: nezumi0803@gmail.com
 
 # 注意事項
-TYPE_STEP_DETECTORを搭載していないスマートフォンでは、動作しません。
-現状ではバックグラウンドでの動作が安定していません。
+- TYPE_STEP_DETECTORを搭載していないスマートフォンでは、動作しません。  
+- 現状ではバックグラウンドでの動作が安定していません。
