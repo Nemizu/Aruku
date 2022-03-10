@@ -18,7 +18,6 @@ class PaymentDisplay : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_payment_display, container, false)
     }
 
@@ -28,6 +27,7 @@ class PaymentDisplay : Fragment() {
         val mainactivity = this.activity as MainActivity
         val shared = PreferenceManager.getDefaultSharedPreferences(mainactivity)
 
+        //支払いUI処理
         view.findViewById<Button>(R.id.pay10).setOnClickListener {
             display.setText(editablePlusInt(display.text,10,shared.getInt("amount",100)))
         }
@@ -42,19 +42,18 @@ class PaymentDisplay : Fragment() {
         }
         view.findViewById<Button>(R.id.back).setOnClickListener {
             findNavController().popBackStack()
-            //findNavController().navigate(R.id.action_paymentDisplay_to_amountDisplay)
         }
+        //支払い確定
         view.findViewById<Button>(R.id.assept).setOnClickListener {
             if(display.text.toString() != ""){//なぜか&&を使用すると落ちるので
                 if(shared.getInt("amount",100) >= display.text.toString().toInt()){
                     shared.edit().putInt("amount",shared.getInt("amount",100) - display.text.toString().toInt()).apply()
-                    //findNavController().navigate(R.id.action_paymentDisplay_to_amountDisplay)
                     findNavController().popBackStack()
                 }
             }
         }
     }
-
+    //支払い用UIの計算クラス
     private fun editablePlusInt(editable: Editable, plus: Int, limit: Int):String{
         if (limit - editable.toString().toInt() < plus && plus > 0){
             return limit.toString()

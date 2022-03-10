@@ -45,8 +45,11 @@ class StatusDisplay : Fragment() ,SensorEventListener{
         mainactivity.stopService(Intent(mainactivity,CountService::class.java))
         mManager = mainactivity.getSystemService(Context.SENSOR_SERVICE) as SensorManager
         mSensor = mManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR)
+
+        /*TYPE_STEP_COUNTERを使用する場合*/
         //countSensor = mManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
         //mManager.registerListener(this,countSensor,SensorManager.SENSOR_DELAY_UI)
+
         shared = PreferenceManager.getDefaultSharedPreferences(mainactivity)
         mainactivity.setupBack(false)
         value1 = view.findViewById(R.id.value1)
@@ -64,6 +67,7 @@ class StatusDisplay : Fragment() ,SensorEventListener{
         view.findViewById<TextView>(R.id.value3).text = shared.getString("100money","10") + "円"
         view.findViewById<TextView>(R.id.value4).text = shared.getString("resettime","24:00")
         view.findViewById<TextView>(R.id.value5).text = shared.getString("examount","100") + "円"
+        //設定画面への変遷
         view.findViewById<Button>(R.id.setting).setOnClickListener {
             findNavController().navigate(R.id.action_statusDisplay_to_settingsFragment)
         }
@@ -94,7 +98,7 @@ class StatusDisplay : Fragment() ,SensorEventListener{
             value2.text = shared.getInt("getmoney",0).toString() + "円"
 
         }
-
+        /*TYPE_STEP_COUNTERが使えた場合*/
         /*if(p0!=null){
             if(p0.sensor.type == Sensor.TYPE_STEP_DETECTOR){
 

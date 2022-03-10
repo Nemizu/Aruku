@@ -43,11 +43,13 @@ class AmountDisplay : Fragment() ,SharedPreferences.OnSharedPreferenceChangeList
         }
     }
 
+    //destroyで検知停止
     override fun onDestroy() {
         super.onDestroy()
         shared.unregisterOnSharedPreferenceChangeListener(this)
     }
 
+    //歩数表示
     override fun onSharedPreferenceChanged(p0: SharedPreferences?, p1: String?) {
         if(p1 == "amount"){
             amount.text = shared.getInt("amount",100).toString() + "円"

@@ -23,8 +23,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         mainactivity.setupBack(true)
         val numberPreference1: EditTextPreference? = findPreference("100money")
         val numberPreference2: EditTextPreference? = findPreference("examount")
-        //val timePreference: EditTextPreference? = findPreference("resettime")
-        //val Dialog1 :DialogPreference? = findPreference("100money")
+        //PreferenceのeditTextのプロパティ編集
         numberPreference1?.setOnBindEditTextListener {
             it.keyListener = DigitsKeyListener.getInstance("01234456789")
             it.inputType = InputType.TYPE_CLASS_NUMBER
@@ -42,6 +41,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        //アクションバーの処理
         when(item.itemId){
            android.R.id.home ->{
                //findNavController().navigate(R.id.action_settingsFragment_to_statusDisplay)
@@ -55,6 +55,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
         val mainactivity = this.activity as MainActivity
         val shared = PreferenceManager.getDefaultSharedPreferences(mainactivity)
+        //即時リセットの処理
         when(preference.key){
             "reset"->{
                 val examount = shared.getString("examount","100")?.toInt()

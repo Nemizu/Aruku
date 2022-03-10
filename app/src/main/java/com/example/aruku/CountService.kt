@@ -10,7 +10,7 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.IBinder
 import androidx.preference.PreferenceManager
-
+/*裏で動かすため*/
 class CountService : Service(), SensorEventListener{
 
     private lateinit var mManager: SensorManager

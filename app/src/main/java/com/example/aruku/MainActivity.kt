@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         val myformat = SimpleDateFormat("yyyy-MM-dd")
         val date = myformat.format(calender.time)
 
+        /*権限の確認（動作未確認）*/
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             if(checkSelfPermission(android.Manifest.permission.ACTIVITY_RECOGNITION) == PackageManager.PERMISSION_GRANTED){
 
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
             shared.edit().putInt("steps",0).apply()
             shared.edit().putInt("getmoney",0).apply()
         }
+        /*日にちをまたいだ時*/
         if(shared.getString("lastdate","") != date){
             val examount = shared.getString("examount","100")?.toInt()
             if (examount != null) {
@@ -57,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         super.onBackPressed()
     }
 
+    /*アクションバーのボタンの有効化*/
     fun setupBack(enable: Boolean){
         val actionbar = supportActionBar
         actionbar?.setDisplayHomeAsUpEnabled(enable)
